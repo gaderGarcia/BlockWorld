@@ -8,7 +8,7 @@ public class Action {
 
 	public static boolean stack(Block x, Block y) {
 		//pre-condition
-		if(Ontology.isClear(y) && Ontology.isHolding(x)) {
+		if(Environment.isClear(y) && Environment.isHolding(x)) {
 			//delete
 			//On method delete isClear method as well as armEmpty delete holding
 			
@@ -24,7 +24,7 @@ public class Action {
 	public boolean unStack(Block x, Block y) {
 		//pre-condition
 		RobotArm  arm = RobotArm.getInstance();
-		if(Ontology.isOn(x, y) && Ontology.isClear(x) && arm.isArmEmpty()){
+		if(Environment.isOn(x, y) && Environment.isClear(x) && arm.isArmEmpty()){
 			//delete
 			//clear deletes On method 
 			//holding deletes armEmtpy method
@@ -41,7 +41,7 @@ public class Action {
 	public static boolean pickUp(Block x) {
 		//pre-condition
 		RobotArm  arm = RobotArm.getInstance();
-		if(Ontology.isClear(x) && Ontology.isOnTable(x) && arm.isArmEmpty()) {
+		if(Environment.isClear(x) && Environment.isOnTable(x) && arm.isArmEmpty()) {
 			//delete list
 			Table table = Table.getInstance();
 			table.removeBlock(x);
@@ -57,7 +57,7 @@ public class Action {
 	public static boolean putDown(Block x) {
 		//pre-condition
 		
-		if(Ontology.isHolding(x)) {
+		if(Environment.isHolding(x)) {
 			//delete list
 			//armEmpty is removing the action of Holding
 			//execute action
